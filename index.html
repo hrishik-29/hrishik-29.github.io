@@ -1,20 +1,350 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hrishik's Portfolio</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #0f172a; color: #f8fafc; }
-        .container { text-align: center; }
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        p { font-size: 1.25rem; color: #94a3b8; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hrishik Reddy | AI/ML Developer Portfolio</title>
+  <meta name="description" content="Portfolio of G. Hrishik Reddy — AI/ML Engineer, Full-Stack Developer. Explore projects in deep learning, computer vision, NLP, and web development.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Hrishik's Portfolio</h1>
-        <p>Exciting projects coming soon!</p>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="container">
+    <a href="#hero" class="nav-logo">&lt;<span>H</span>R/&gt;</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#academics">Academics</a>
+      <a href="#research">Research</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </div>
+    <div class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-overlay"></div>
+<div class="mobile-menu">
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#academics">Academics</a>
+  <a href="#research">Research</a>
+  <a href="#feedback">Feedback</a>
+  <a href="#blogs">Blogs</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="section">
+  <canvas id="particles-canvas"></canvas>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting">👋 Hello, I'm</p>
+        <h1 class="hero-name">G. Hrishik <span class="gradient-text">Reddy</span></h1>
+        <p class="hero-tagline"><span id="typewriter"></span></p>
+        <p class="hero-desc">Passionate about building intelligent systems and beautiful interfaces. Currently pursuing B.Tech in CSE with AI/ML specialization at IIITDM Kancheepuram.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="assets/resume.pdf" target="_blank" class="btn-outline">Download Resume</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><h3>9+</h3><p>Projects</p></div>
+          <div class="hero-stat"><h3>6+</h3><p>Certifications</p></div>
+          <div class="hero-stat"><h3>4+</h3><p>Tech Stacks</p></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-img-wrapper">
+          <img src="assets/images/profile.jpg" alt="Hrishik Reddy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <div class="container">
+    <span class="section-label reveal">// About Me</span>
+    <h2 class="section-title reveal">Get to Know Me</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a 2nd-year B.Tech student at IIITDM Kancheepuram, specializing in Computer Science with AI/ML. I love building things that live on the internet and solving complex problems with machine learning.</p>
+        <p>From developing wearable voice translators on Raspberry Pi to building encrypted personal productivity dashboards, I thrive at the intersection of AI research and practical engineering.</p>
+        <p>When I'm not coding, you'll find me exploring new ML papers, participating in hackathons, or contributing to open-source projects.</p>
+      </div>
+      <div class="skills-section reveal">
+        <div class="skills-category">
+          <h4>Languages</h4>
+          <div class="skills-tags">
+            <span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">C++</span><span class="skill-tag">PHP</span><span class="skill-tag">SQL</span><span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h4>AI / ML</h4>
+          <div class="skills-tags">
+            <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">XGBoost</span><span class="skill-tag">CLIP</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">OpenCV</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h4>Web & Tools</h4>
+          <div class="skills-tags">
+            <span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">Flask</span><span class="skill-tag">Streamlit</span><span class="skill-tag">Vite</span><span class="skill-tag">Firebase</span><span class="skill-tag">Git</span><span class="skill-tag">Jupyter</span><span class="skill-tag">Kaggle</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h4>Databases</h4>
+          <div class="skills-tags">
+            <span class="skill-tag">MySQL</span><span class="skill-tag">SQLite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="section">
+  <div class="container">
+    <span class="section-label reveal">// My Work</span>
+    <h2 class="section-title reveal">Featured Projects</h2>
+    <p class="section-subtitle reveal">A collection of projects spanning AI/ML, web development, and IoT.</p>
+    <div class="projects-controls reveal">
+      <input type="text" id="project-search" class="search-box" placeholder="🔍 Search projects...">
+      <div class="filter-tags">
+        <button class="filter-tag active" data-filter="all">All</button>
+        <button class="filter-tag" data-filter="ml">AI / ML</button>
+        <button class="filter-tag" data-filter="web">Web App</button>
+      </div>
+    </div>
+    <div class="projects-grid" id="projects-grid"></div>
+  </div>
+</section>
+
+<!-- ===== ACHIEVEMENTS ===== -->
+<section id="achievements" class="section">
+  <div class="container">
+    <span class="section-label reveal">// Achievements</span>
+    <h2 class="section-title reveal">Certifications & Awards</h2>
+    <p class="section-subtitle reveal">Continuous learning through industry-recognized certifications.</p>
+    <div class="achievements-grid">
+      <div class="glass-card cert-card reveal">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-info">
+          <h4>Advanced Learning Algorithms</h4>
+          <span class="issuer">Coursera — Andrew Ng</span>
+          <p>Neural networks, decision trees, and advanced optimization techniques.</p>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-info">
+          <h4>Supervised Machine Learning</h4>
+          <span class="issuer">Coursera — Andrew Ng</span>
+          <p>Regression, classification, and regularization fundamentals.</p>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-icon">🧠</div>
+        <div class="cert-info">
+          <h4>BCG GenAI Job Simulation</h4>
+          <span class="issuer">Forage — BCG</span>
+          <p>Hands-on generative AI simulation for enterprise consulting.</p>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-icon">📊</div>
+        <div class="cert-info">
+          <h4>Introduction to Statistics</h4>
+          <span class="issuer">DataCamp</span>
+          <p>Probability distributions, hypothesis testing, and statistical inference.</p>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-icon">🗃️</div>
+        <div class="cert-info">
+          <h4>SQL Basic & Intermediate</h4>
+          <span class="issuer">HackerRank</span>
+          <p>Complex queries, joins, subqueries, and database operations.</p>
+        </div>
+      </div>
+      <div class="glass-card cert-card reveal">
+        <div class="cert-icon">🐍</div>
+        <div class="cert-info">
+          <h4>Python Coder</h4>
+          <span class="issuer">Certification</span>
+          <p>Core Python programming, data structures, and problem solving.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACADEMICS ===== -->
+<section id="academics" class="section">
+  <div class="container">
+    <span class="section-label reveal">// Education</span>
+    <h2 class="section-title reveal">Academic Journey</h2>
+    <div class="timeline reveal">
+      <div class="timeline-item current">
+        <div class="timeline-dot"></div>
+        <span class="year">2024 – Present</span>
+        <h4>B.Tech — CSE (AI/ML Specialization)</h4>
+        <p>IIITDM Kancheepuram — Currently in 2nd Year</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="year">2022 – 2024</span>
+        <h4>Intermediate (12th Class)</h4>
+        <p>Details to be provided</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <span class="year">2022</span>
+        <h4>Secondary School (10th Class)</h4>
+        <p>Details to be provided</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH ===== -->
+<section id="research" class="section">
+  <div class="container">
+    <span class="section-label reveal">// Research</span>
+    <h2 class="section-title reveal">Research Work</h2>
+    <div class="glass-card research-placeholder reveal">
+      <div class="icon">🔬</div>
+      <h3>Research in Progress</h3>
+      <p>Currently exploring research opportunities in AI/ML. Stay tuned for upcoming publications and findings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEEDBACK ===== -->
+<section id="feedback" class="section">
+  <div class="container">
+    <span class="section-label reveal">// Testimonials</span>
+    <h2 class="section-title reveal">What People Say</h2>
+    <div class="feedback-stats reveal">
+      <div class="stat-card"><h3 data-count="95" data-suffix="%">0%</h3><p>Client Satisfaction</p></div>
+      <div class="stat-card"><h3 data-count="98" data-suffix="%">0%</h3><p>On-Time Delivery</p></div>
+      <div class="stat-card"><h3 data-count="5" data-suffix=".0">0</h3><p>Average Rating</p></div>
+      <div class="stat-card"><h3 data-count="10" data-suffix="+">0</h3><p>Happy Clients</p></div>
+    </div>
+    <div class="feedback-grid">
+      <div class="glass-card feedback-card reveal">
+        <div class="fb-header">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=AP&backgroundColor=0f172a&textColor=00f5d4" alt="avatar" class="fb-avatar">
+          <div><span class="fb-name">Aditya P.</span><br><span class="fb-title">Project Teammate</span></div>
+        </div>
+        <div class="fb-stars">★★★★★</div>
+        <p class="fb-text">"Great collaborator with deep ML knowledge. Always delivers quality code on time."</p>
+        <div class="fb-tags"><span class="fb-tag">Python</span><span class="fb-tag">PyTorch</span></div>
+        <p class="fb-boost">↑ 40% Productivity Boost</p>
+      </div>
+      <div class="glass-card feedback-card reveal">
+        <div class="fb-header">
+          <img src="https://api.dicebear.com/7.x/initials/svg?seed=NL&backgroundColor=0f172a&textColor=00f5d4" alt="avatar" class="fb-avatar">
+          <div><span class="fb-name">Nikhil L.</span><br><span class="fb-title">Project Teammate</span></div>
+        </div>
+        <div class="fb-stars">★★★★★</div>
+        <p class="fb-text">"Exceptional full-stack skills. Built our entire encrypted dashboard from scratch."</p>
+        <div class="fb-tags"><span class="fb-tag">React</span><span class="fb-tag">Node.js</span></div>
+        <p class="fb-boost">↑ 35% Productivity Boost</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOGS ===== -->
+<section id="blogs" class="section">
+  <div class="container">
+    <span class="section-label reveal">// Blog</span>
+    <h2 class="section-title reveal">Latest Articles</h2>
+    <p class="section-subtitle reveal">Thoughts on AI, development, and technology.</p>
+    <div class="blogs-grid">
+      <div class="glass-card blog-card reveal" style="padding:0;overflow:hidden;">
+        <div class="blog-img" style="background:linear-gradient(135deg,rgba(0,245,212,0.2),rgba(123,47,247,0.2));display:flex;align-items:center;justify-content:center;font-size:3rem;">📝</div>
+        <div class="blog-body">
+          <span class="blog-date">Published on Medium</span>
+          <h3>Check Out My Medium Articles</h3>
+          <p>I write about AI/ML concepts, project walkthroughs, and development tips on Medium.</p>
+          <a href="https://medium.com/@YOUR_MEDIUM_HANDLE" target="_blank" class="read-more">Read on Medium →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+  <div class="container">
+    <span class="section-label reveal">// Get in Touch</span>
+    <h2 class="section-title reveal">Let's Connect</h2>
+    <p class="section-subtitle reveal">Have a project idea or just want to say hello? I'd love to hear from you.</p>
+    <div class="contact-grid">
+      <form id="contact-form" class="contact-form glass-card reveal">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required placeholder="Project Collaboration">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Tell me about your idea..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Message ✉️</button>
+        <p id="form-message" style="margin-top:12px;font-size:0.9rem;"></p>
+      </form>
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>Email</h4><p>your.email@example.com</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Location</h4><p>IIITDM Kancheepuram, Chennai, India</p></div>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/hrishik-29" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://leetcode.com/YOUR_LEETCODE" target="_blank" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+          <a href="https://www.geeksforgeeks.org/user/YOUR_GFG" target="_blank" aria-label="GeeksForGeeks"><i class="fas fa-laptop-code"></i></a>
+          <a href="https://medium.com/@YOUR_MEDIUM" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+          <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <p>Built with <span class="heart">❤️</span> by G. Hrishik Reddy — © 2026</p>
+  </div>
+</footer>
+
+<script src="js/particles.js"></script>
+<script src="js/main.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/contact.js"></script>
 </body>
 </html>

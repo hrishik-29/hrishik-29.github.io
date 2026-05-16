@@ -1,10 +1,13 @@
 /* ===== Main JS: Nav, Scroll, Typewriter, Animations ===== */
 document.addEventListener('DOMContentLoaded', () => {
-  /* -- Navbar scroll effect -- */
+  /* -- Navbar scroll effect + scroll-to-top -- */
   const navbar = document.querySelector('.navbar');
+  const scrollTopBtn = document.getElementById('scroll-top');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
+    if (scrollTopBtn) scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
   });
+  if (scrollTopBtn) scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   /* -- Active nav link on scroll -- */
   const sections = document.querySelectorAll('.section[id]');

@@ -48,7 +48,7 @@ const projectsData = [
     type: "web",
     status: "completed",
     github: "https://github.com/hrishik-29/freshcart",
-    preview: ""
+    preview: "https://hrishik-29.github.io/freshcart/"
   },
   {
     title: "CricPulse",
@@ -58,7 +58,7 @@ const projectsData = [
     type: "web",
     status: "completed",
     github: "https://github.com/hrishik-29/cricpulse",
-    preview: ""
+    preview: "https://hrishik-29.github.io/cricpulse/"
   },
   {
     title: "Multimedia Data Augmentation",

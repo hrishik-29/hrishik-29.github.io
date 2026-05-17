@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -- Typewriter effect -- */
-  const roles = ['AI/ML Engineer', 'Full-Stack Developer', 'Problem Solver', 'Open Source Enthusiast'];
+  const roles = ['Software Developer', 'ML Enthusiast', 'CS Undergrad @ IIITDM', '320+ DSA Problems Solved'];
   let roleIdx = 0, charIdx = 0, deleting = false;
   const typeEl = document.getElementById('typewriter');
   function typewrite() {

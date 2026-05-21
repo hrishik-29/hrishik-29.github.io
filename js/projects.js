@@ -4,7 +4,7 @@ const projectsData = [
     title: "Reddit Skill Trend Forecasting",
     desc: "End-to-end pipeline scraping 10,000+ Reddit posts to analyze emerging skill trends using Weighted Skill Score with VADER sentiment and gradient boosting forecasting.",
     tags: ["Python", "PRAW", "NLP", "ML"],
-    type: "ml", status: "completed", featured: true,
+    type: "ml", status: "completed",
     icon: "📊",
     github: "https://github.com/hrishik-29/Reddit-Skill-Trend-Forecaster",
     preview: ""
@@ -13,7 +13,7 @@ const projectsData = [
     title: "Brain Tumor Segmentation",
     desc: "Multimodal VLM + U-Net framework with CLIP-based text-guided cross-attention fusion for FLAIR MRI segmentation. Focal Tversky Loss and Grad-CAM visualizations.",
     tags: ["Python", "Deep Learning", "U-Net", "CLIP"],
-    type: "ml", status: "completed", featured: true,
+    type: "ml", status: "completed",
     icon: "🧠",
     github: "https://github.com/hrishik-29/brain-tumor-segmentation",
     preview: ""

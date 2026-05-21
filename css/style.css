@@ -334,16 +334,36 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .project-card .card-status.completed { background: rgba(34,197,94,0.1); color: #4ade80; }
 .project-card .card-status.wip { background: rgba(251,191,36,0.1); color: #fbbf24; }
 
-/* Featured project card (larger) */
-.project-card.featured {
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  padding: 36px;
+
+/* ===== CODING PROFILES ===== */
+.profiles-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;
 }
-.project-card.featured .card-desc {
-  -webkit-line-clamp: 4;
+.profile-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 24px; border-radius: var(--radius);
+  background: var(--bg-card); border: 1px solid var(--border);
+  transition: all 0.3s var(--ease); cursor: pointer;
+  text-decoration: none; color: inherit;
+}
+.profile-card:hover {
+  border-color: var(--border-hover); transform: translateY(-3px);
+  box-shadow: var(--accent-glow);
+}
+.profile-icon {
+  flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
+  background: var(--accent-subtle); display: flex;
+  align-items: center; justify-content: center;
+  color: var(--accent-light); font-size: 1.5rem;
+}
+.profile-info h3 { font-size: 0.95rem; font-weight: 600; }
+.profile-info p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+.profile-arrow {
+  margin-left: auto; font-size: 1.1rem; color: var(--text-muted);
+  transition: all 0.3s var(--ease);
+}
+.profile-card:hover .profile-arrow {
+  color: var(--accent-light); transform: translate(2px, -2px);
 }
 
 /* ===== ACHIEVEMENTS ===== */
@@ -523,7 +543,7 @@ body { animation: fadeIn 0.6s var(--ease); }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 /* ===== ALTERNATING SECTION BG ===== */
-#about, #achievements, #writing { background: var(--bg-secondary); }
+#about, #profiles, #achievements, #writing { background: var(--bg-secondary); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 968px) {
@@ -545,7 +565,6 @@ body { animation: fadeIn 0.6s var(--ease); }
   .mobile-menu { display: block; }
   .mobile-overlay { display: block; pointer-events: none; }
   .mobile-overlay.open { pointer-events: all; }
-  .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .section { padding: 80px 0; }

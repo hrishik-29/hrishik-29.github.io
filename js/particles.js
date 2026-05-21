@@ -7,12 +7,12 @@
 
     let w, h, cols, rows, dots = [];
     const SPACING = 28;
-    const BASE_RADIUS = 1.2;
-    const MAX_RADIUS = 3.5;
+    const BASE_RADIUS = 1.5;
+    const MAX_RADIUS = 4;
     const INFLUENCE = 180;
-    const BASE_ALPHA = 0.15;
-    const MAX_ALPHA = 0.7;
-    const DOT_COLOR = { r: 99, g: 102, b: 241 }; // indigo-500
+    const BASE_ALPHA = 0.25;
+    const MAX_ALPHA = 0.85;
+    const DOT_COLOR = { r: 129, g: 140, b: 248 }; // indigo-400 (brighter)
 
     let mouse = { x: -1000, y: -1000 };
     let animMouse = { x: -1000, y: -1000 };

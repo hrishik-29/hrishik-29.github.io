@@ -1,78 +1,123 @@
-/* ===== Neural Network Particle Background ===== */
-class ParticleNetwork {
-  constructor(canvas) {
-    this.canvas = canvas;
-    this.ctx = canvas.getContext('2d');
-    this.particles = [];
-    this.mouse = { x: null, y: null };
-    this.resize();
-    this.init();
-    this.animate();
-    window.addEventListener('resize', () => this.resize());
-    window.addEventListener('mousemove', (e) => {
-      const rect = this.canvas.getBoundingClientRect();
-      this.mouse.x = e.clientX - rect.left;
-      this.mouse.y = e.clientY - rect.top;
-    });
-  }
-  resize() {
-    this.canvas.width = this.canvas.parentElement.offsetWidth;
-    this.canvas.height = this.canvas.parentElement.offsetHeight;
-  }
-  init() {
-    this.particles = [];
-    const count = Math.min(80, Math.floor((this.canvas.width * this.canvas.height) / 12000));
-    for (let i = 0; i < count; i++) {
-      this.particles.push({
-        x: Math.random() * this.canvas.width,
-        y: Math.random() * this.canvas.height,
-        vx: (Math.random() - 0.5) * 0.6,
-        vy: (Math.random() - 0.5) * 0.6,
-        r: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.3
-      });
+/* ===== Interactive Dot Grid — Cursor-Reactive Mesh ===== */
+(function() {
+  const canvas = document.getElementById('dot-grid');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let w, h, cols, rows, dots = [];
+  const SPACING = 32;
+  const BASE_RADIUS = 1;
+  const MAX_RADIUS = 3;
+  const INFLUENCE = 160;
+  const BASE_ALPHA = 0.12;
+  const MAX_ALPHA = 0.6;
+  const DOT_COLOR = { r: 99, g: 102, b: 241 }; // indigo-500
+
+  let mouse = { x: -1000, y: -1000 };
+  let animMouse = { x: -1000, y: -1000 };
+
+  function resize() {
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+    cols = Math.ceil(w / SPACING) + 1;
+    rows = Math.ceil(h / SPACING) + 1;
+    dots = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        dots.push({ x: c * SPACING, y: r * SPACING, baseX: c * SPACING, baseY: r * SPACING });
+      }
     }
   }
-  animate() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.particles.forEach((p, i) => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
-      this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      this.ctx.fillStyle = `rgba(0, 245, 212, ${p.opacity})`;
-      this.ctx.fill();
-      for (let j = i + 1; j < this.particles.length; j++) {
-        const p2 = this.particles[j];
-        const dx = p.x - p2.x, dy = p.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) {
-          this.ctx.beginPath();
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.strokeStyle = `rgba(0, 245, 212, ${0.15 * (1 - dist / 150)})`;
-          this.ctx.lineWidth = 0.6;
-          this.ctx.stroke();
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+
+    // Smooth mouse interpolation
+    animMouse.x += (mouse.x - animMouse.x) * 0.12;
+    animMouse.y += (mouse.y - animMouse.y) * 0.12;
+
+    for (let i = 0; i < dots.length; i++) {
+      const dot = dots[i];
+      const dx = animMouse.x - dot.baseX;
+      const dy = animMouse.y - dot.baseY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < INFLUENCE) {
+        const factor = 1 - dist / INFLUENCE;
+        const eased = factor * factor; // quadratic easing
+
+        // Attract dots slightly toward cursor
+        dot.x = dot.baseX + dx * eased * 0.08;
+        dot.y = dot.baseY + dy * eased * 0.08;
+
+        const radius = BASE_RADIUS + (MAX_RADIUS - BASE_RADIUS) * eased;
+        const alpha = BASE_ALPHA + (MAX_ALPHA - BASE_ALPHA) * eased;
+
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${DOT_COLOR.r}, ${DOT_COLOR.g}, ${DOT_COLOR.b}, ${alpha})`;
+        ctx.fill();
+
+        // Draw connection lines to nearby influenced dots
+        if (eased > 0.3) {
+          for (let j = i + 1; j < dots.length; j++) {
+            const other = dots[j];
+            const odx = animMouse.x - other.baseX;
+            const ody = animMouse.y - other.baseY;
+            const odist = Math.sqrt(odx * odx + ody * ody);
+            if (odist < INFLUENCE) {
+              const ldx = dot.x - other.x;
+              const ldy = dot.y - other.y;
+              const lineDist = Math.sqrt(ldx * ldx + ldy * ldy);
+              if (lineDist < SPACING * 1.6) {
+                const lineAlpha = (1 - lineDist / (SPACING * 1.6)) * eased * 0.2;
+                ctx.beginPath();
+                ctx.moveTo(dot.x, dot.y);
+                ctx.lineTo(other.x, other.y);
+                ctx.strokeStyle = `rgba(${DOT_COLOR.r}, ${DOT_COLOR.g}, ${DOT_COLOR.b}, ${lineAlpha})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+              }
+            }
+          }
         }
+      } else {
+        dot.x = dot.baseX;
+        dot.y = dot.baseY;
+        ctx.beginPath();
+        ctx.arc(dot.baseX, dot.baseY, BASE_RADIUS, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${DOT_COLOR.r}, ${DOT_COLOR.g}, ${DOT_COLOR.b}, ${BASE_ALPHA})`;
+        ctx.fill();
       }
-      if (this.mouse.x) {
-        const dx = p.x - this.mouse.x, dy = p.y - this.mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 200) {
-          this.ctx.beginPath();
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.lineTo(this.mouse.x, this.mouse.y);
-          this.ctx.strokeStyle = `rgba(123, 47, 247, ${0.3 * (1 - dist / 200)})`;
-          this.ctx.lineWidth = 0.8;
-          this.ctx.stroke();
-        }
-      }
-    });
-    requestAnimationFrame(() => this.animate());
+    }
+
+    requestAnimationFrame(draw);
   }
-}
-document.addEventListener('DOMContentLoaded', () => {
-  const canvas = document.getElementById('particles-canvas');
-  if (canvas) new ParticleNetwork(canvas);
-});
+
+  canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  // Touch support
+  canvas.addEventListener('touchmove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.touches[0].clientX - rect.left;
+    mouse.y = e.touches[0].clientY - rect.top;
+  }, { passive: true });
+
+  canvas.addEventListener('touchend', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  });
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();

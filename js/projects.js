@@ -74,8 +74,8 @@ const projectsData = [
   },
   {
     title: "Personal Tracker",
-    desc: "Self-hosted productivity dashboard with task management, habit tracking, goal setting, reading logs, KanBan boards, and habit streaks.",
-    tags: ["HTML/CSS", "Streamlit"],
+    desc: "Full-stack productivity dashboard with task management, habit tracking, goal setting, reading logs, KanBan boards, and focus mode. Built with React and Firebase.",
+    tags: ["React", "Vite", "Firebase", "Node.js"],
     type: "web", status: "completed",
     icon: "📋",
     github: "https://github.com/hrishik-29/personal-tracker",
@@ -101,18 +101,18 @@ const projectsData = [
   },
   {
     title: "Supermarket Billing",
-    desc: "Web-based billing and inventory management system with admin dashboard, customer management, and secure authentication.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    type: "web", status: "wip",
+    desc: "Full-stack billing and inventory management system with admin dashboard, customer management, cart checkout, payment gateway, and secure authentication.",
+    tags: ["PHP", "MySQL", "HTML/CSS"],
+    type: "web", status: "completed",
     icon: "🏪",
     github: "https://github.com/hrishik-29/supermarket-billing",
     preview: ""
   },
   {
     title: "Ultimate Run",
-    desc: "Campus delivery and errand platform where students post requests and helpers accept them. Session-based tracking with tip support.",
-    tags: ["Python", "HTML/CSS"],
-    type: "web", status: "wip",
+    desc: "Campus delivery and errand platform where students post item requests and helpers accept them. Flask backend with session-based tracking and tip support.",
+    tags: ["Python", "Flask", "HTML/CSS"],
+    type: "web", status: "completed",
     icon: "🏃",
     github: "https://github.com/hrishik-29/ultimate-run",
     preview: ""

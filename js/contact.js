@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
       if (data.success) {
         formMsg.textContent = '✅ Message sent successfully!';
-        formMsg.style.color = '#00f5d4';
+        formMsg.style.color = '#a5b4fc';
         form.reset();
       } else {
         formMsg.textContent = '❌ Something went wrong. Please try again.';

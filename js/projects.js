@@ -106,7 +106,7 @@ const projectsData = [
     type: "web", status: "completed",
     icon: "🏪",
     github: "https://github.com/hrishik-29/supermarket-billing",
-    preview: ""
+    preview: "https://hrishik-29.github.io/supermarket-billing/"
   },
   {
     title: "Ultimate Run",
@@ -115,7 +115,7 @@ const projectsData = [
     type: "web", status: "completed",
     icon: "🏃",
     github: "https://github.com/hrishik-29/ultimate-run",
-    preview: ""
+    preview: "https://hrishik-29.github.io/ultimate-run/"
   }
 ];
 
@@ -132,7 +132,7 @@ function renderProjects(filter = 'all') {
 
   grid.innerHTML = filtered.map(p => {
     const previewLink = p.preview
-      ? `<a href="${p.preview}" target="_blank" title="Live Preview">◉</a>`
+      ? `<a href="${p.preview}" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>`
       : '';
 
     return `
